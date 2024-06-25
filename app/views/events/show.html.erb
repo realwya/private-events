@@ -3,7 +3,7 @@
 <p><%= @event.date %></p>
 <p><%= @event.location %></p>
 
-<%= link_to 'Back', events_path %>
+<%= link_to 'All events', events_path %>
 
 <% if user_signed_in? %>
   <% if @event.attendees.include?(current_user) %>

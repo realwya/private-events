@@ -8,20 +8,22 @@
   <% end %>
 </ul>
 <h2>Attended Events</h2>
-<h3>Past</h3>
+
+<h3>Upcoming</h3>
 <ul>
-  <% @user.attended_events.where('date < ?', Time.now).find_each do |event| %>
+  <% @user.attended_events.upcoming.find_each do |event| %>
   <li>
     <%= link_to event.name, event %>
   </li>
   <% end %>
 </ul>
 
-<h3>Future</h3>
+<h3>Past</h3>
 <ul>
-  <% @user.attended_events.where('date >= ?', Time.now).find_each do |event| %>
+  <% @user.attended_events.past.find_each do |event| %>
   <li>
     <%= link_to event.name, event %>
   </li>
   <% end %>
 </ul>
+
